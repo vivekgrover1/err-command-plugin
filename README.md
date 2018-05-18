@@ -1,2 +1,21 @@
-# err-command-plugin
-err-command-plugin
+# AWS Plugin
+
+Requirements
+---
+```
+pip install boto3
+```
+
+Installation
+---
+```
+
+```
+
+Usage
+---
+Simple example usage
+
+```
+!aws instances
+```
