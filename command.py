@@ -58,11 +58,11 @@ class COMMAND(BotPlugin):
     @arg_botcmd('hostname', type=str)
     def diskspace(self, msg, hostname=None,user_name=None):
         """
-        Command to diskspace details with df.
+        Command to get the diskspace details with df.
         """
 
         yield  "Your task is now processing..."
-        value= cmd_exec("ansible all -i '{0},' -m raw --args='df -h' --private-key /root/errbot/ec2_key.pem -u {1} --become".format(hostname,user_name))
+        value= cmd_exec("ansible all -i '{0},' -m shell --args='df -h' --private-key /root/errbot/ec2_key.pem -u {1} --become".format(hostname,user_name))
         count_success=value[0].count('| SUCCESS')
         count_failed=value[0].count('| FAILED')
         yield self.send_card(
