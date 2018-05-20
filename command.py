@@ -160,7 +160,7 @@ class COMMAND(BotPlugin):
         """
 
         yield  "Your task is now processing..."
-        value = cmd_exec("ansible all -i '{0},' -m command --args='systemctl status {1}' --private-key /root/errbot/ec2_key.pem -u {2} --become".format(hostname,service_name,user_name))
+        value = cmd_exec("ansible all -i '{0},' -m command --args='service {1} status' --private-key /root/errbot/ec2_key.pem -u {2} --become".format(hostname,service_name,user_name))
         count_success = value[0].count('| SUCCESS')
         count_failed = value[0].count('| FAILED')
         yield self.send_card(
